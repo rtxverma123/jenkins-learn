@@ -22,10 +22,20 @@ pipeline {
     }
 
     stage('Fluffy Test') {
+        parallel {
+            stage('Fluffy tests'){
+                steps{
+                    echo 'First step'
+                    echo 'Second parallel stage'
+                }
+            }
+            stage('Fluffy tests second'){
       steps {
         sh 'sleep 5'
         sh 'echo Success!'
       }
+            }
+    }
     }
 
     stage('Fluffy Deploy') {
