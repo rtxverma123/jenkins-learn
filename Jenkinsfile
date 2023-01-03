@@ -26,7 +26,7 @@ pipeline {
             stage('Fluffy tests'){
                 steps{
                     echo 'First step'
-                    echo 'Second parallel stage'
+                    sh 'docker run hello-world'
                 }
             }
             stage('Fluffy tests second'){
