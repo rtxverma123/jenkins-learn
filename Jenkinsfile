@@ -2,12 +2,22 @@ pipeline {
   agent any
   stages {
     stage('Fluffy Build') {
-      steps {
-        echo 'Placeholder'
-        sh 'echo Edited Placeholder.'
-        sh 'chmod +x build.sh'
-        sh './build.sh'
-//         archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+      parallel {
+        stage('Fluffy Build') {
+          steps {
+            echo 'Placeholder'
+            sh 'echo Edited Placeholder.'
+            sh 'chmod +x build.sh'
+            sh './build.sh'
+          }
+        }
+
+        stage('fluffy Para') {
+          steps {
+            echo 'Running parallely'
+          }
+        }
+
       }
     }
 
