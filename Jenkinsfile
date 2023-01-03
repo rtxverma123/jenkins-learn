@@ -5,7 +5,9 @@ pipeline {
       steps {
         echo 'Placeholder'
         sh 'echo Edited Placeholder.'
-        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+        sh 'chmod +x build.sh'
+        sh './build.sh'
+//         archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
       }
     }
 
